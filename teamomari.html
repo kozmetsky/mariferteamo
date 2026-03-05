@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Carta de Cumpleaños</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Playfair Display',serif;
+  background:
+    radial-gradient(circle at 20% 30%, #ff7fa8, transparent 40%),
+    radial-gradient(circle at 80% 70%, #ff3e7f, transparent 40%),
+    linear-gradient(160deg,#3a0018,#b10f4e);
+}
+
+
+.feliz{
+  position:absolute;
+  top:40px;
+  font-family:'Great Vibes',cursive;
+  font-size:64px;
+  color:white;
+  text-shadow:0 10px 30px rgba(0,0,0,0.4);
+  animation:brillo 4s infinite alternate;
+  text-align:center;
+  width:100%;
+}
+@keyframes brillo{
+  from{opacity:.7}
+  to{opacity:1}
+}
+
+
+.globo{
+  position:absolute;
+  bottom:-100px;
+  width:40px;
+  height:55px;
+  border-radius:50% 50% 45% 45%;
+  background:radial-gradient(circle at 35% 30%,#ffffffaa,#ff6f9e 40%,#c61b57 80%);
+  box-shadow:
+    inset -8px -8px 15px rgba(0,0,0,.35),
+    inset 6px 6px 10px rgba(255,255,255,.3);
+  animation:subir linear infinite;
+}
+.globo:before{
+  content:"";
+  position:absolute;
+  bottom:-4px;
+  left:50%;
+  transform:translateX(-50%);
+  width:6px;
+  height:6px;
+  background:#c61b57;
+  border-radius:50%;
+}
+.globo:after{
+  content:"";
+  position:absolute;
+  bottom:-30px;
+  left:50%;
+  width:2px;
+  height:30px;
+  background:#ffffff80;
+  transform-origin:top;
+  animation:balanceo 2s ease-in-out infinite;
+}
+@keyframes balanceo{
+  0%{transform:translateX(-50%) rotate(8deg)}
+  50%{transform:translateX(-50%) rotate(-8deg)}
+  100%{transform:translateX(-50%) rotate(8deg)}
+}
+@keyframes subir{
+  0%{transform:translateY(0); opacity:1;}
+  100%{transform:translateY(-110vh); opacity:0;}
+}
+
+
+.sobre{
+  width:280px; /* un poco más pequeño que antes */
+  cursor:pointer;
+  transition:.4s;
+  filter:drop-shadow(0 20px 30px rgba(0,0,0,.6));
+  position:relative;
+  z-index:10;
+  margin-top:80px;
+}
+.sobre:hover{
+  transform:scale(1.05);
+}
+
+
+.carta{
+  position:fixed;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+  width:480px;        
+  max-width:85vw;
+  max-height:75vh;    
+  padding:35px;
+  overflow-y:auto;
+  background:
+    linear-gradient(#ffffffee,#ffffffee),
+    url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  border-radius:10px;
+  box-shadow:0 40px 70px rgba(0,0,0,.5), inset 0 0 20px rgba(0,0,0,.08);
+  opacity:0;
+  transition:1s;
+}
+.abrir .carta{
+  opacity:1;
+}
+
+.titulo{
+  font-family:'Great Vibes',cursive;
+  font-size:48px;   
+  margin-bottom:25px;
+  color:#2a2a2a;
+  text-align:center;
+}
+.texto{
+  font-size:19px;   
+  line-height:1.8;
+  color:#333;
+  white-space:pre-line;
+  margin-bottom:20px;
+  text-align:justify;
+}
+.foto-final{
+  display:block;
+  margin:20px auto;
+  max-width:80%;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+.firma{
+  display:block;
+  text-align:right;
+  margin-top:15px;
+  font-family:'Great Vibes',cursive;
+  font-size:26px;
+  color:#2a2a2a;
+}
+</style>
+</head>
+
+<body>
+
+<div class="feliz">Feliz Cumpleaños, Mi Vida</div>
+
+<!-- GLOBOS -->
+<div class="globo" style="left:5%;animation-duration:10s"></div>
+<div class="globo" style="left:15%;animation-duration:12s"></div>
+<div class="globo" style="left:25%;animation-duration:9s"></div>
+<div class="globo" style="left:35%;animation-duration:11s"></div>
+<div class="globo" style="left:45%;animation-duration:10s"></div>
+<div class="globo" style="left:55%;animation-duration:13s"></div>
+<div class="globo" style="left:65%;animation-duration:8s"></div>
+<div class="globo" style="left:75%;animation-duration:12s"></div>
+<div class="globo" style="left:85%;animation-duration:9s"></div>
+<div class="globo" style="left:95%;animation-duration:11s"></div>
+
+<!-- SOBRE Y CARTA -->
+<div id="contenedor">
+  <img src="carta2.png" class="sobre" id="sobre" onclick="abrirCarta()">
+  <div class="carta">
+    <div class="titulo">Para ti, mi chula</div>
+    <div class="texto">
+¡Feliz Cumpleaños, mi amor!
+
+Te deseo lo mejor en tu día y siempre, que Diosito te me cuide y bendiga, te mereces todo en este mundo. Muchas gracias por cada sonrisa, cada momento y cada recuerdo que hemos construido juntos.
+
+Eres muy importante para mí, te amo muchísimo, más de lo que te imaginas, y a pesar de todo siempre te seguiré amando. Espero que lo nuestro nunca se apague y podamos continuar con nuestra linda historia, y que nunca tenga un final.
+
+Feliz cumpleaños, preciosa mía. Besito en la frente.
+    </div>
+
+    <!-- FOTO FINAL Y FIRMA -->
+    <img src="foto.png" alt="Foto Final" class="foto-final">
+    <span class="firma">- Justin</span>
+  </div>
+</div>
+
+<script>
+function abrirCarta(){
+  document.getElementById("contenedor").classList.add("abrir");
+  document.getElementById("sobre").style.display = "none"; // ocultamos el sobre
+}
+</script>
+
+</body>
+</html>
